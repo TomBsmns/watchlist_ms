@@ -26,4 +26,5 @@ public class Watchlist {
     public String getMovieUuid(){return movieUuid;}
     public boolean getIsWatched(){return isWatched;}
     public int getId(){return id;}
+    public void setIsWatched(boolean watched){this.isWatched = watched;}
 }

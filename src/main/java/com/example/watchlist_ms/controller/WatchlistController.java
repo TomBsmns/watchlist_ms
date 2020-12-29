@@ -35,6 +35,14 @@ public class WatchlistController {
         return watchlist;
     }
 
+    @PostMapping("watchlist/watched/{uuid}")
+    public Watchlist setWatched(@PathVariable UUID uuid){
+        Watchlist watchlist = watchlistRespository.findFirstByUuid(uuid.toString());
+        watchlist.setIsWatched(true);
+        watchlistRespository.save(watchlist);
+        return watchlist;
+    }
+
     @DeleteMapping("watchlist/{uuid}")
     public String delete(@PathVariable UUID uuid){
         watchlistRespository.deleteWatchlistByMovieUuid(uuid.toString());
