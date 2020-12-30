@@ -25,6 +25,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: compile
     name: Java 8 build, deliver artifact and container
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: secret
+          POSTGRES_DB: moviedb
+        ports:
+          - 32055:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5  
     steps:
       - uses: actions/checkout@v1
 
