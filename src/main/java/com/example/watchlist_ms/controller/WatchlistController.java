@@ -2,6 +2,7 @@ package com.example.watchlist_ms.controller;
 
 import com.example.watchlist_ms.model.Watchlist;
 import com.example.watchlist_ms.respository.WatchlistRespository;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +45,10 @@ public class WatchlistController {
     }
 
     @DeleteMapping("watchlist/{uuid}")
-    public String delete(@PathVariable UUID uuid){
+    public JSONObject delete(@PathVariable UUID uuid){
         watchlistRespository.deleteWatchlistByMovieUuid(uuid.toString());
-        return "Movie successfully removed from watchlist";
+        JSONObject response = new JSONObject();
+        response.put("message", "Movie successfully removed from watchlist");
+        return response;
     }
 }

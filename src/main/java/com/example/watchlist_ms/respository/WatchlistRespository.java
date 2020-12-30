@@ -11,8 +11,6 @@ import java.util.List;
 public interface WatchlistRespository extends JpaRepository<Watchlist, Integer> {
     List<Watchlist> findAllByIsWatched(boolean watched);
 
-    Watchlist findFirstByMovieUuid(String movieUuid);
-
     Watchlist findFirstByUuid(String uuid);
 
     @Transactional

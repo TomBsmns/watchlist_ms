@@ -22,6 +22,19 @@ public class Watchlist {
         this.uuid = UUID.randomUUID().toString();
         this.isWatched = false;
     }
+
+    public Watchlist(UUID movieUuid, UUID uuid){
+        this.movieUuid = movieUuid.toString();
+        this.uuid = uuid.toString();
+        this.isWatched = false;
+    }
+    public Watchlist(UUID movieUuid, UUID uuid, boolean watched){
+        this.movieUuid = movieUuid.toString();
+        this.uuid = uuid.toString();
+        this.isWatched = watched;
+    }
+
+
     public String getUuid(){return uuid;}
     public String getMovieUuid(){return movieUuid;}
     public boolean getIsWatched(){return isWatched;}
