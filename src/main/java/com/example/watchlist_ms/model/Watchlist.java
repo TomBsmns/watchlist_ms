@@ -28,11 +28,6 @@ public class Watchlist {
         this.uuid = uuid.toString();
         this.isWatched = false;
     }
-    public Watchlist(UUID movieUuid, UUID uuid, boolean watched){
-        this.movieUuid = movieUuid.toString();
-        this.uuid = uuid.toString();
-        this.isWatched = watched;
-    }
 
 
     public String getUuid(){return uuid;}

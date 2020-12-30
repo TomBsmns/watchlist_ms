@@ -35,7 +35,7 @@ public class WatchlistmsControllerIntegrationTests {
     private Watchlist watchlist1 = new Watchlist(UUID.fromString("21d14364-8e94-41a3-824a-a44df76d59d8"),UUID.fromString("fbedd1a2-e847-448d-b49e-e15c23dd9db1"));
     private Watchlist watchlist2 = new Watchlist(UUID.fromString("97c428b4-1678-4576-8ed7-4db269b33ed3"),UUID.fromString("ab12ba30-ef0a-4762-97c5-f4b49acbeaea"));
     private Watchlist watchlist3 = new Watchlist(UUID.fromString("df9344cd-048f-424b-a2da-7a67850642ed"),UUID.fromString("f80aea44-58f2-48a5-b55f-8d8dfcdf1d69"));
-    private Watchlist watchlist4 = new Watchlist(UUID.fromString("df9344cd-048f-424b-a2da-7a67850642ed"),UUID.fromString("675cc8a2-75c9-4378-ab3b-34dfb27a0fac"));
+    private Watchlist watchlist4 = new Watchlist(UUID.fromString("9b399632-edcd-49ce-98a7-cc193b85376b"),UUID.fromString("675cc8a2-75c9-4378-ab3b-34dfb27a0fac"));
 
     @BeforeEach
     public void beforeAllTests() {
@@ -114,7 +114,7 @@ public class WatchlistmsControllerIntegrationTests {
     @Test
     public void removeWatchlistItem_thenReturnSuccessMessage() throws Exception {
         watchlistRespository.save(watchlist4);
-        mockMvc.perform(delete("/watchlist/{uuid}", watchlist4.getUuid()))
+        mockMvc.perform(delete("/watchlist/{movieUuid}", watchlist4.getMovieUuid()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message", is("Movie successfully removed from watchlist")))

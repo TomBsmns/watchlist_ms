@@ -44,9 +44,9 @@ public class WatchlistController {
         return watchlist;
     }
 
-    @DeleteMapping("watchlist/{uuid}")
-    public JSONObject delete(@PathVariable UUID uuid){
-        watchlistRespository.deleteWatchlistByMovieUuid(uuid.toString());
+    @DeleteMapping("watchlist/{movieUuid}")
+    public JSONObject delete(@PathVariable UUID movieUuid){
+        watchlistRespository.deleteWatchlistByMovieUuid(movieUuid.toString());
         JSONObject response = new JSONObject();
         response.put("message", "Movie successfully removed from watchlist");
         return response;
