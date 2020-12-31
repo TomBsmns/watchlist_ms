@@ -27,7 +27,7 @@ spec:
               memory: "200Mi"
           env:                    # Environment variables supplied to the Pod
             - name: POSTGRES_HOST
-              value: "10.101.55.41"
+              value: "10.100.2.2"
             - name: POSTGRES_PORT
               value: "5432"
 ---
@@ -38,10 +38,11 @@ metadata:
   labels:                           # Labels that will be applied to this service
     app: watchlist-service
 spec:
-  type: NodePort                    # The service will be exposed by opening a Port on each node and proxying it. Allowing connections from outside the cluster
+  type: ClusterIP                    # The service will be exposed by opening a Port on each node and proxying it. Allowing connections from outside the cluster
   selector:
     app: watchlist-service   # The service exposes Pods with label `app=book-info-service-server`
   ports:                            # Forward incoming connections on port 8080 to the target port 8051
     - name: http
       port: 8053
       targetPort: 8053
+  clusterIP: 10.100.2.1
