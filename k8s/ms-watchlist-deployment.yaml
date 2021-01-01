@@ -17,7 +17,7 @@ spec:
       containers:
         - name: watchlist-service
           image: tombosmans/watchlist-service
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8053 # The port that the container exposes
@@ -44,15 +44,15 @@ spec:
 apiVersion: v1                      # API version
 kind: Service                       # Type of the kubernetes resource
 metadata:
-  name: watchlist-service    # Name of the service
-  labels:                           # Labels that will be applied to this service
-    app: watchlist-service
+ name: watchlist-service    # Name of the service
+ labels:                           # Labels that will be applied to this service
+   app: watchlist-service
 spec:
-  type: ClusterIP                    # The service will be exposed by opening a Port on each node and proxying it. Allowing connections from outside the cluster
-  selector:
-    app: watchlist-service   # The service exposes Pods with label `app=book-info-service-server`
-  ports:                            # Forward incoming connections on port 8080 to the target port 8051
-    - name: http
-      port: 8053
-      targetPort: 8053
-  clusterIP: 10.100.2.1
+ type: ClusterIP                    # The service will be exposed by opening a Port on each node and proxying it. Allowing connections from outside the cluster
+ selector:
+   app: watchlist-service   # The service exposes Pods with label `app=book-info-service-server`
+ ports:                            # Forward incoming connections on port 8080 to the target port 8051
+   - name: http
+     port: 8053
+     targetPort: 8053
+ clusterIP: 10.100.2.1

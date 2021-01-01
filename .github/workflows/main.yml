@@ -49,7 +49,7 @@ jobs:
           java-version: 8
 
       - name: Test and build project
-        run: mvn -f pom.xml clean install
+        run: mvn -f pom.xml clean install -P prod
 
 
       - name: Upload Maven build artifact
