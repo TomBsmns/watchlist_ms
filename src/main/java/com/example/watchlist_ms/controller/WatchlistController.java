@@ -36,7 +36,7 @@ public class WatchlistController {
         return watchlist;
     }
 
-    @PostMapping("watchlist/watched/{uuid}")
+    @PutMapping("watchlist/watched/{uuid}")
     public Watchlist setWatched(@PathVariable UUID uuid){
         Watchlist watchlist = watchlistRespository.findFirstByUuid(uuid.toString());
         watchlist.setIsWatched(true);
