@@ -88,7 +88,7 @@ public class WatchlistmsControllerIntegrationTests {
     @Test
     public void setWatchlistItemWatched_thenReturnJsonWatchlist() throws Exception {
         watchlistRespository.save(watchlist4);
-        mockMvc.perform(post("/watchlist/watched/{uuid}", watchlist4.getUuid()))
+        mockMvc.perform(put("/watchlist/watched/{uuid}", watchlist4.getUuid()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.uuid", is(watchlist4.getUuid())))

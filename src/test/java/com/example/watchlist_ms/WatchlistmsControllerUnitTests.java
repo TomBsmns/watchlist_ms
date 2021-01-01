@@ -84,7 +84,7 @@ public class WatchlistmsControllerUnitTests {
                 = new Watchlist(UUID.fromString("21d14364-8e94-41a3-824a-a44df76d59d8"),UUID.fromString("fbedd1a2-e847-448d-b49e-e15c23dd9db1"));
 
         given(watchlistRespository.findFirstByUuid(watchlist.getUuid())).willReturn(watchlist);
-        mockMvc.perform(post("/watchlist/watched/{uuid}", watchlist.getUuid()))
+        mockMvc.perform(put("/watchlist/watched/{uuid}", watchlist.getUuid()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.uuid", is(watchlist.getUuid())))
