@@ -29,7 +29,6 @@ public class Watchlist {
         this.isWatched = false;
     }
 
-
     public String getUuid(){return uuid;}
     public String getMovieUuid(){return movieUuid;}
     public boolean getIsWatched(){return isWatched;}
