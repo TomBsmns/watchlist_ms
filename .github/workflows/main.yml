@@ -55,7 +55,7 @@ jobs:
       - name: Upload Maven build artifact
         uses: actions/upload-artifact@v1
         with:
-          name: book-info-service-artifact.jar
+          name: watchlist-service-artifact.jar
           path: ./target/watchlist_ms-0.0.1-SNAPSHOT.jar
 
       - name: Docker login
